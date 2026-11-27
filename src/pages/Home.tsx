@@ -4,7 +4,6 @@ import { useLang } from '../lang';
 import { api, type Product } from '../api';
 import ProductCard, { Stars } from '../components/ProductCard';
 import Reveal, { SplitWords, MaskImage, gsap, ScrollTrigger } from '../components/Reveal';
-import NewsletterForm from '../components/NewsletterForm';
 
 export default function Home() {
   const { t, lang, fmt } = useLang();
@@ -272,16 +271,6 @@ export default function Home() {
         </section>
       )}
 
-      {/* ===== NEWSLETTER ===== */}
-      <section className="border-t-[6px] border-ivory">
-        <div className="max-w-[1600px] mx-auto px-5 md:px-10 py-8 md:py-12 text-center">
-          <Reveal>
-            <h2 className="font-display font-black uppercase text-3xl md:text-5xl tracking-tight"><SplitWords text={t.home.newsletter} /></h2>
-            <p className="mt-6 text-concrete max-w-md mx-auto">{t.home.newsletterSub}</p>
-          </Reveal>
-          <Reveal delay={0.15}><div className="mt-10"><NewsletterForm /></div></Reveal>
-        </div>
-      </section>
     </div>
   );
 }
