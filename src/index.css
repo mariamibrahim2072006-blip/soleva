@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0c0c0d;
+  --color-ink-2: #141416;
+  --color-ink-3: #1d1d20;
+  --color-ivory: #f2eee6;
+  --color-ivory-2: #e7e1d4;
+  --color-concrete: #8f8d88;
+  --color-concrete-2: #b9b7b2;
+  --color-silver: #c8c9cd;
+  --color-line: rgba(242, 238, 230, 0.12);
+  --color-line-dark: rgba(12, 12, 13, 0.12);
+  --font-display: "Archivo", "IBM Plex Sans Arabic", sans-serif;
+  --font-serif: "Cormorant Garamond", "IBM Plex Sans Arabic", serif;
+  --font-sans: "Archivo", "IBM Plex Sans Arabic", sans-serif;
+}
+
+html { background: var(--color-ink); }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ivory);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+[dir="rtl"] body { letter-spacing: 0 !important; }
+
+::selection { background: var(--color-silver); color: var(--color-ink); }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-ink); }
+::-webkit-scrollbar-thumb { background: var(--color-ink-3); border-radius: 0; }
+
+/* Outlined display text */
+.text-outline {
+  -webkit-text-stroke: 1px rgba(242, 238, 230, 0.28);
+  color: transparent;
+}
+.text-outline-dark {
+  -webkit-text-stroke: 1px rgba(12, 12, 13, 0.25);
+  color: transparent;
+}
+
+/* Custom cursor */
+@media (hover: hover) and (pointer: fine) {
+  .cursor-dot, .cursor-ring {
+    position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;
+    border-radius: 9999px; transform: translate(-50%, -50%);
+  }
+  .cursor-dot { width: 6px; height: 6px; background: var(--color-ivory); mix-blend-mode: difference; }
+  .cursor-ring {
+    width: 34px; height: 34px; border: 1px solid rgba(242, 238, 230, 0.5);
+    transition: width .25s, height .25s, border-color .25s, opacity .25s;
+    mix-blend-mode: difference;
+  }
+  .cursor-ring.is-active { width: 64px; height: 64px; }
+  .cursor-hidden .cursor-dot, .cursor-hidden .cursor-ring { opacity: 0; }
+}
+@media (hover: none) {
+  .cursor-dot, .cursor-ring { display: none; }
+}
+
+/* Preloader */
+.preloader-line { transform-origin: left; }
+[dir="rtl"] .preloader-line { transform-origin: right; }
+
+/* Nav link underline */
+.nav-link { position: relative; }
+.nav-link::after {
+  content: ""; position: absolute; bottom: -4px; inset-inline-start: 0;
+  width: 100%; height: 1px; background: currentColor;
+  transform: scaleX(0); transform-origin: inset-inline-end;
+  transition: transform .4s cubic-bezier(.76, 0, .24, 1);
+}
+.nav-link:hover::after { transform: scaleX(1); transform-origin: inset-inline-start; }
+
+/* Magnetic button base */
+.btn-magnetic { will-change: transform; }
+
+/* Marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+[dir="rtl"] .animate-marquee { animation-direction: reverse; }
+.animate-marquee { animation: marquee 30s linear infinite; }
+
+/* Product card image swap */
+.product-card .img-b { opacity: 0; transition: opacity .6s cubic-bezier(.76, 0, .24, 1), transform .8s cubic-bezier(.76, 0, .24, 1); }
+.product-card .img-a { transition: opacity .6s cubic-bezier(.76, 0, .24, 1), transform .8s cubic-bezier(.76, 0, .24, 1); }
+.product-card:hover .img-b { opacity: 1; transform: scale(1.04); }
+.product-card:hover .img-a { opacity: 0; transform: scale(1.04); }
+
+/* Image reveal mask */
+.reveal-mask { clip-path: inset(0 0 100% 0); }
+
+/* 3D stage */
+.stage-3d { perspective: 1200px; }
+.stage-3d-inner { transform-style: preserve-3d; will-change: transform; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Drawer transitions */
+.drawer { transition: transform .5s cubic-bezier(.76, 0, .24, 1); }
+.drawer-overlay { transition: opacity .4s ease; }
+
+/* Admin table */
+.admin-table th { font-weight: 500; text-align: start; }
+
+/* Input focus */
+.input-line {
+  background: transparent; border: 0; border-bottom: 1px solid var(--color-line);
+  padding: 12px 0; width: 100%; color: var(--color-ivory); outline: none;
+  transition: border-color .3s;
+}
+.input-line:focus { border-color: var(--color-ivory); }
+.input-line::placeholder { color: var(--color-concrete); }
+select.input-line option { background: var(--color-ink-2); color: var(--color-ivory); }
