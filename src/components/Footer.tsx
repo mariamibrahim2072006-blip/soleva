@@ -23,23 +23,23 @@ export default function Footer() {
       <div className="max-w-[1600px] mx-auto px-5 md:px-10 py-8 md:py-10 grid grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-7 lg:gap-10">
         <div className="col-span-2 lg:col-span-4">
           <div className="font-display font-black text-3xl tracking-[0.18em] mb-2">SOLEVA</div>
-          <p className="text-ivory text-sm max-w-xs">{t.footer.tagline}</p>
+          <p className="text-ivory text-base font-semibold max-w-xs">{t.footer.tagline}</p>
           <div className="mt-4">
-            <p className="text-sm font-semibold text-ivory mb-1 max-w-xs">{t.home.newsletterSub}</p>
+            <p className="text-base font-bold text-ivory mb-1 max-w-xs">{t.home.newsletterSub}</p>
             <NewsletterForm compact />
           </div>
         </div>
         {cols.map((c) => (
           <div key={c.title} className="lg:col-span-2">
-            <h4 className="text-xs font-bold uppercase tracking-[0.16em] text-ivory mb-3">{c.title}</h4>
+            <h4 className="font-display font-black uppercase text-lg tracking-tight text-ivory mb-3">{c.title}</h4>
             <ul className="space-y-1.5">
-              {c.links.map((l) => <li key={l.to + l.label}><Link to={l.to} className="text-sm text-ivory font-medium hover:underline">{l.label}</Link></li>)}
+              {c.links.map((l) => <li key={l.to + l.label}><Link to={l.to} className="text-base text-ivory font-semibold hover:underline">{l.label}</Link></li>)}
             </ul>
           </div>
         ))}
       </div>
       <div className="border-t border-line">
-        <div className="max-w-[1600px] mx-auto px-5 md:px-10 py-3 flex flex-col md:flex-row items-center justify-between gap-1 text-xs font-medium text-ivory">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 py-3 flex flex-col md:flex-row items-center justify-between gap-1 text-sm font-semibold text-ivory">
           <span>© {new Date().getFullYear()} SOLEVA. {t.footer.rights}</span>
           <span>{t.footer.demo}</span>
         </div>
