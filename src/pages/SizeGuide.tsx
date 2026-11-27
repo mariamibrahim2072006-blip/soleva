@@ -4,8 +4,8 @@ import { SizeTable } from './ProductPage';
 export default function SizeGuide() {
   const { t, lang } = useLang();
   return (
-    <div className="max-w-3xl mx-auto px-5 pt-32 pb-24">
-      <h1 className="font-display font-black uppercase text-4xl md:text-6xl tracking-tight mb-6">{t.nav.sizeGuide}</h1>
+    <div className="band-yellow max-w-3xl mx-auto px-5 pt-32 pb-24">
+      <div className="band-cobalt -mt-32 pt-32 pb-8 mb-8"><h1 className="font-display font-black uppercase text-4xl md:text-6xl tracking-tight mb-6">{t.nav.sizeGuide}</h1></div>
       <p className="text-concrete leading-relaxed text-base md:text-lg font-medium mb-10">
         {lang === 'ar'
           ? 'قيسي قدمك من الكعب حتى أطول إصبع بالسنتيمتر وقارنيها بالجدول. إذا كنتِ بين مقاسين، اختاري الأكبر. مقاسات سوليفا مضبوطة على المقاس الأوروبي.'

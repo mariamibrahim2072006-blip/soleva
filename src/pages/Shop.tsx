@@ -64,13 +64,16 @@ export default function Shop() {
   const title = collection ? titles[collection] : catObj ? (lang === 'ar' ? catObj.name_ar : catObj.name_en) : t.shop.title;
 
   return (
-    <div className="max-w-[1600px] mx-auto px-5 md:px-10 pt-28 md:pt-36 pb-24">
-      <header className="mb-12">
+    <>
+      <section className="band-cobalt">
+      <header className="max-w-[1600px] mx-auto px-5 md:px-10 pt-28 md:pt-36 pb-8 md:pb-10">
         <h1 className="font-display font-black uppercase text-5xl md:text-7xl tracking-tight">{title}</h1>
-        <p className="text-concrete text-sm mt-3">{data ? `${data.total} ${t.shop.results}` : '…'}</p>
+        <p className="text-base font-semibold mt-3">{data ? `${data.total} ${t.shop.results}` : '…'}</p>
       </header>
+      </section>
 
-      <div className="flex gap-12">
+      <section className="band-yellow">
+      <div className="max-w-[1600px] mx-auto px-5 md:px-10 pt-10 pb-20 flex gap-12">
         {/* Filters sidebar */}
         <aside className={`fixed inset-0 z-[300] bg-ink p-6 overflow-y-auto transition-transform duration-500 lg:static lg:z-auto lg:bg-transparent lg:p-0 lg:w-64 lg:shrink-0 lg:block lg:translate-x-0 ${filtersOpen ? 'translate-x-0' : '-translate-x-full rtl:translate-x-full'} lg:rtl:translate-x-0`}>
           <div className="flex justify-between items-center lg:hidden mb-8">
@@ -174,14 +177,15 @@ export default function Shop() {
           )}
         </div>
       </div>
-    </div>
+      </section>
+    </>
   );
 }
 
 function FilterGroup({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="border-b border-line py-6">
-      <h3 className="text-xs uppercase tracking-[0.25em] text-concrete mb-4">{title}</h3>
+      <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-ivory mb-4">{title}</h3>
       {children}
     </div>
   );

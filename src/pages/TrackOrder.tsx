@@ -27,8 +27,8 @@ export default function TrackOrder() {
   const currentIdx = order ? steps.indexOf(order.status) : -1;
 
   return (
-    <div className="max-w-2xl mx-auto px-5 pt-32 pb-24 min-h-screen">
-      <h1 className="font-display font-black uppercase text-4xl md:text-5xl tracking-tight mb-4">{t.track.title}</h1>
+    <div className="band-yellow max-w-2xl mx-auto px-5 pt-32 pb-24 min-h-screen">
+      <div className="band-cobalt -mt-32 pt-32 pb-8 mb-8"><h1 className="font-display font-black uppercase text-4xl md:text-5xl tracking-tight mb-4">{t.track.title}</h1></div>
       <p className="text-concrete mb-10">{t.track.sub}</p>
       <form onSubmit={submit} className="space-y-6">
         <input required className="input-line uppercase" placeholder={t.track.placeholder} value={orderNumber} onChange={(e) => setOrderNumber(e.target.value)} dir="ltr" />

@@ -29,8 +29,8 @@ export default function WishlistPage() {
   }, [user, wishlist]);
 
   return (
-    <div className="max-w-[1600px] mx-auto px-5 md:px-10 pt-28 md:pt-36 pb-24 min-h-screen">
-      <h1 className="font-display font-black uppercase text-4xl md:text-6xl tracking-tight mb-12">{t.account.wishlist}</h1>
+    <div className="band-yellow max-w-[1600px] mx-auto px-5 md:px-10 pt-28 md:pt-36 pb-24 min-h-screen">
+      <div className="band-cobalt -mt-28 md:-mt-36 pt-28 md:pt-36 pb-8 mb-8"><h1 className="font-display font-black uppercase text-4xl md:text-6xl tracking-tight mb-12">{t.account.wishlist}</h1></div>
       {loading ? (
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">{Array.from({ length: 4 }).map((_, i) => <div key={i} className="aspect-[4/5] bg-ink-2 animate-pulse" />)}</div>
       ) : items.length ? (

@@ -37,12 +37,12 @@ export default function Account() {
   return (
     <div className="bg-white" style={F}>
       <div className="max-w-[1300px] mx-auto px-5 md:px-10 pt-28 md:pt-32 pb-20 min-h-[80vh]">
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+        <div className="band-cobalt -mt-28 md:-mt-32 pt-28 md:pt-32 pb-6 mb-8 flex flex-wrap items-center justify-between gap-4">
           <div>
             <h1 className="text-3xl md:text-4xl font-extrabold text-ivory">{ar ? `أهلاً، ${first}` : `Welcome back, ${first}`}</h1>
             <p className="text-ivory mt-1 text-base">{user.email}</p>
           </div>
-          <button onClick={() => { logout(); nav('/'); }} className="text-sm font-semibold text-ivory border-2 border-ivory rounded-lg px-5 py-2.5 hover:bg-ink">{ar ? 'تسجيل الخروج' : 'Sign out'}</button>
+          <button onClick={() => { logout(); nav('/'); }} className="text-sm font-semibold text-ivory border-2 border-ivory rounded-lg px-5 py-2.5 hover:bg-ivory hover:text-ink">{ar ? 'تسجيل الخروج' : 'Sign out'}</button>
         </div>
         <div className="flex flex-col md:flex-row gap-8">
           <nav className="md:w-60 shrink-0 flex md:flex-col gap-2 overflow-x-auto pb-2 md:pb-0">
