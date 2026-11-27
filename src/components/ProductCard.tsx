@@ -24,10 +24,10 @@ export default function ProductCard({ product, index = 0 }: { product: Product; 
 
   return (
     <Link to={`/product/${product.slug}`} className="product-card group block" data-cursor>
-      <div className="relative aspect-[4/5] overflow-hidden bg-ivory-2">
+      <div className="relative aspect-[4/5] overflow-hidden bg-white border-b-[6px] border-ivory">
         <img src={product.images[0]} alt={name} loading={index > 3 ? 'lazy' : undefined}
-          className="img-a absolute inset-0 w-full h-full object-cover" />
-        {product.images[1] && (
+          className="img-a absolute inset-0 w-full h-full object-contain" />
+        {false && product.images[1] && (
           <img src={product.images[1]} alt="" loading="lazy" aria-hidden
             className="img-b absolute inset-0 w-full h-full object-cover" />
         )}

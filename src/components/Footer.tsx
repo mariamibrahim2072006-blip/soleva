@@ -25,21 +25,21 @@ export default function Footer() {
           <div className="font-display font-black text-4xl tracking-[0.18em] mb-4">SOLEVA</div>
           <p className="text-concrete text-sm leading-relaxed max-w-xs">{t.footer.tagline}</p>
           <div className="mt-8">
-            <p className="text-xs uppercase tracking-[0.25em] text-concrete mb-3">{t.home.newsletter}</p>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-ivory mb-3">{t.home.newsletter}</p>
             <NewsletterForm compact />
           </div>
         </div>
         {cols.map((c) => (
           <div key={c.title} className="lg:col-span-2">
-            <h4 className="text-xs uppercase tracking-[0.25em] text-concrete mb-5">{c.title}</h4>
+            <h4 className="text-sm font-bold uppercase tracking-[0.18em] text-ivory mb-5">{c.title}</h4>
             <ul className="space-y-3">
-              {c.links.map((l) => <li key={l.to + l.label}><Link to={l.to} className="text-sm text-ivory/80 hover:text-ivory transition-colors">{l.label}</Link></li>)}
+              {c.links.map((l) => <li key={l.to + l.label}><Link to={l.to} className="text-sm text-ivory font-medium hover:text-ivory transition-colors">{l.label}</Link></li>)}
             </ul>
           </div>
         ))}
       </div>
       <div className="border-t border-line">
-        <div className="max-w-[1600px] mx-auto px-5 md:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-concrete">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-sm font-medium text-concrete">
           <span>© {new Date().getFullYear()} SOLEVA. {t.footer.rights}</span>
           <span>{t.footer.demo}</span>
         </div>

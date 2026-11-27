@@ -32,7 +32,7 @@ export default function Preloader() {
     <div ref={wrap} className={`fixed inset-0 z-[10000] bg-ink flex flex-col items-center justify-center transition-transform duration-700 ${pct >= 100 ? '-translate-y-full' : ''}`} style={{ transitionTimingFunction: 'cubic-bezier(.76,0,.24,1)' }} aria-hidden>
       <svg width="220" height="60" viewBox="0 0 220 60" fill="none" className="mb-6">
         {['S', 'O', 'L', 'E', 'V', 'A'].map((ch, i) => (
-          <text key={i} x={18 + i * 34} y={42} className="preloader-letter" fontFamily="Archivo" fontWeight="800" fontSize="44" fill="none" stroke="#f2eee6" strokeWidth="1"
+          <text key={i} x={18 + i * 34} y={42} className="preloader-letter" fontFamily="Archivo" fontWeight="800" fontSize="44" fill="none" stroke="#0864E8" strokeWidth="1"
             style={{ strokeDasharray: 400, strokeDashoffset: Math.max(0, 400 - (pct / 100) * 400 * 1.6 + i * 40), opacity: pct > i * 14 ? 1 : 0.25, transition: 'opacity .3s' }}>
             {ch}
           </text>
