@@ -29,7 +29,7 @@ export default function Admin() {
   ];
 
   return (
-    <div className="min-h-screen bg-ink">
+    <div className="min-h-screen bg-white">
       <header className="border-b border-line">
         <div className="max-w-[1500px] mx-auto px-5 md:px-8 h-16 flex items-center justify-between">
           <span className="font-display font-black tracking-[0.18em]">SOLEVA <span className="text-concrete font-normal text-sm">ADMIN</span></span>

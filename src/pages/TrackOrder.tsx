@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useLang } from '../lang';
 import { api } from '../api';
 
 export default function TrackOrder() {
   const { t, lang, fmt } = useLang();
-  const [orderNumber, setOrderNumber] = useState('');
-  const [email, setEmail] = useState('');
+  const [sp] = useSearchParams();
+  const [orderNumber, setOrderNumber] = useState(sp.get('order') || '');
+  const [email, setEmail] = useState(sp.get('email') || '');
   const [order, setOrder] = useState<any>(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);

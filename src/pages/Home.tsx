@@ -172,7 +172,7 @@ export default function Home() {
       </section>
 
       {/* ===== CATEGORIES ===== */}
-      <section className="max-w-[1600px] mx-auto px-5 md:px-10 py-8 md:py-12">
+      <section className="band-yellow max-w-[1600px] mx-auto px-5 md:px-10 py-8 md:py-12">
         <Reveal><h2 className="font-display font-black uppercase text-3xl md:text-5xl tracking-tight mb-8">{t.home.shopByCategory}</h2></Reveal>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-8">
           {categories.map((c) => {
@@ -212,7 +212,7 @@ export default function Home() {
       </section>
 
       {/* ===== BEST SELLERS ===== */}
-      <section className="max-w-[1600px] mx-auto px-5 md:px-10 py-8 md:py-12">
+      <section className="band-yellow max-w-[1600px] mx-auto px-5 md:px-10 py-8 md:py-12">
         <Reveal>
           <div className="flex items-end justify-between mb-8">
             <h2 className="font-display font-black uppercase text-3xl md:text-5xl tracking-tight">{t.home.bestSellers}</h2>
@@ -242,7 +242,7 @@ export default function Home() {
       </section>
 
       {/* ===== CAMPAIGN GALLERY ===== */}
-      <section className="border-y border-line">
+      <section className="band-yellow border-y border-line">
         <div className="max-w-[1600px] mx-auto px-5 md:px-10 py-8 md:py-12">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-ivory mb-8">{t.home.gallery}</p>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
