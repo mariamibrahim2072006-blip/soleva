@@ -147,3 +147,7 @@ select.input-line option { background: var(--color-ink-2); color: var(--color-iv
 .footer-dark { background: var(--color-ink); color: var(--color-ivory); }
 
 .band-yellow { background: var(--color-ink); box-shadow: 0 0 0 100vmax var(--color-ink); clip-path: inset(0 -100vmax); }
+
+.band-cobalt { color: #fff; background: #0864e8; box-shadow: 0 0 0 100vmax #0864e8; clip-path: inset(0 -100vmax);
+  --color-ivory: #ffffff; --color-ink: #0864e8; --color-concrete: #ffffff; --color-line: rgba(255,255,255,0.55); --color-silver: #ffffff; --color-ink-3: #0652bd; }
+.card-light { --color-ivory: #0864e8; --color-ink: #f5ff00; --color-concrete: #04348f; --color-line: rgba(8,100,232,0.5); --color-silver: #0864e8; --color-ink-3: #eef3ff; }
