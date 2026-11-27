@@ -38,7 +38,6 @@ const CONTENT: Record<string, { en: { title: string; sections: [string, string][
       ['What we collect', 'Account details (name, email, phone), delivery addresses and order history. We do not store card data.'],
       ['How we use it', 'To fulfil orders, provide order tracking, and — only if you subscribe — send occasional emails about drops and offers.'],
       ['What we never do', 'We never sell your data or share it with advertisers.'],
-      ['Demo notice', 'This is a portfolio demonstration store. Data you enter is stored in a demonstration database and no real orders are fulfilled.'],
     ]},
     ar: { title: 'سياسة الخصوصية', sections: [
       ['ما الذي نجمعه', 'بيانات الحساب (الاسم والبريد والهاتف) وعناوين التوصيل وسجل الطلبات. لا نخزن بيانات البطاقات.'],
@@ -49,10 +48,9 @@ const CONTENT: Record<string, { en: { title: string; sections: [string, string][
   },
   terms: {
     en: { title: 'Terms & Conditions', sections: [
-      ['The store', 'SOLEVA is a premium footwear demonstration store. By using the site you agree to these terms.'],
+      ['The store', 'SOLEVA is a premium footwear store. By using the site you agree to these terms.'],
       ['Orders', 'Orders are confirmed by email and fulfilled within 2-5 business days. Prices are in Egyptian Pounds and include VAT.'],
       ['Availability', 'All pairs are produced in limited runs. If an item becomes unavailable after ordering, we refund in full.'],
-      ['Demo notice', 'This is a portfolio demonstration store. No real orders are fulfilled and no payments are processed.'],
     ]},
     ar: { title: 'الشروط والأحكام', sections: [
       ['المتجر', 'سوليفا متجر أحذية فاخر تجريبي. باستخدامك الموقع فأنت توافق على هذه الشروط.'],
@@ -74,7 +72,7 @@ export default function StaticPage({ page }: { page: string }) {
         {c.sections.map(([h, b]) => (
           <section key={h}>
             <h2 className="font-display font-bold uppercase tracking-wide text-lg mb-3">{h}</h2>
-            <p className="text-ivory/70 leading-loose">{b}</p>
+            <p className="text-concrete leading-relaxed text-base md:text-lg font-medium">{b}</p>
           </section>
         ))}
       </div>

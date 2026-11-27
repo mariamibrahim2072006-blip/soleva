@@ -130,7 +130,7 @@ export default function Shop() {
 
           <FilterGroup title={t.shop.availability}>
             <label className="flex items-center gap-2 text-sm text-concrete cursor-pointer">
-              <input type="checkbox" checked={state.availability === 'in_stock'} onChange={(e) => setParam('availability', e.target.checked ? 'in_stock' : '')} className="accent-[#f2eee6]" />
+              <input type="checkbox" checked={state.availability === 'in_stock'} onChange={(e) => setParam('availability', e.target.checked ? 'in_stock' : '')} className="accent-[#0864E8]" />
               {t.shop.inStock}
             </label>
           </FilterGroup>

@@ -113,7 +113,7 @@ export default function ProductPage() {
 
         {/* Info */}
         <div className="lg:pt-8">
-          <p className="text-xs uppercase tracking-[0.3em] text-concrete mb-3">{lang === 'ar' ? p.category_ar : p.category_en} · {p.gender === 'men' ? t.misc.men : p.gender === 'women' ? t.misc.women : t.misc.unisex}</p>
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-ivory mb-3">{lang === 'ar' ? p.category_ar : p.category_en} · {p.gender === 'men' ? t.misc.men : p.gender === 'women' ? t.misc.women : t.misc.unisex}</p>
           <h1 className="font-display font-black uppercase text-4xl md:text-5xl tracking-tight">{name}</h1>
           <div className="flex items-center gap-3 mt-4">
             <Stars rating={p.rating} />
@@ -123,7 +123,7 @@ export default function ProductPage() {
             <span className="font-display font-black text-3xl">{fmt(p.price)}</span>
             {p.on_sale && <span className="text-concrete text-xl line-through">{fmt(p.base_price)}</span>}
           </div>
-          <p className="mt-8 text-ivory/70 leading-loose">{lang === 'ar' ? p.description_ar : p.description_en}</p>
+          <p className="mt-8 text-concrete leading-relaxed text-base md:text-lg font-medium">{lang === 'ar' ? p.description_ar : p.description_en}</p>
 
           {/* Colors */}
           <div className="mt-10">
@@ -202,8 +202,8 @@ export default function ProductPage() {
             {data.reviews.map((r) => (
               <figure key={r.id} className="border border-line p-6">
                 <Stars rating={r.rating} />
-                <blockquote className="mt-4 font-serif italic text-lg">“{r.title}”</blockquote>
-                <p className="mt-2 text-ivory/60 text-sm leading-relaxed">{r.body}</p>
+                <blockquote className="mt-4 font-display font-black uppercase tracking-tight text-lg">“{r.title}”</blockquote>
+                <p className="mt-2 text-concrete text-sm leading-relaxed">{r.body}</p>
                 <figcaption className="mt-4 text-xs uppercase tracking-[0.25em] text-concrete">{r.author_name} · {new Date(r.created_at).toLocaleDateString(lang === 'ar' ? 'ar-EG' : 'en-GB')}</figcaption>
               </figure>
             ))}

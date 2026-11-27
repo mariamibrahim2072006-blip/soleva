@@ -19,7 +19,7 @@ export default function Contact() {
     <div className="max-w-[1400px] mx-auto px-5 md:px-10 pt-32 md:pt-40 pb-24 grid grid-cols-1 lg:grid-cols-2 gap-16">
       <div>
         <h1 className="font-display font-black uppercase text-4xl md:text-6xl tracking-tight mb-6">{t.contactPage.title}</h1>
-        <p className="text-ivory/70 leading-loose max-w-md">{t.contactPage.sub}</p>
+        <p className="text-concrete leading-relaxed text-base md:text-lg font-medium max-w-md">{t.contactPage.sub}</p>
         <div className="mt-12 space-y-4 text-sm text-concrete">
           <p>hello@soleva-eg.com</p>
           <p dir="ltr">+20 155 555 0100</p>

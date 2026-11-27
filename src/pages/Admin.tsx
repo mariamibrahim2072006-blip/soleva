@@ -230,7 +230,7 @@ function ProductEditor({ product, onClose }: { product: any; onClose: () => void
         <div className="flex gap-6 text-sm text-concrete">
           {[['is_new', 'New'], ['is_best_seller', 'Best Seller'], ['is_signature', 'Signature']].map(([k, l]) => (
             <label key={k} className="flex items-center gap-2 cursor-pointer">
-              <input type="checkbox" checked={(f as any)[k]} onChange={(e) => setF({ ...f, [k]: e.target.checked })} className="accent-[#f2eee6]" />{l}
+              <input type="checkbox" checked={(f as any)[k]} onChange={(e) => setF({ ...f, [k]: e.target.checked })} className="accent-[#0864E8]" />{l}
             </label>
           ))}
         </div>

@@ -71,7 +71,7 @@ export default function Checkout() {
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 12.5 9.5 18 20 6.5" /></svg>
           </div>
           <h1 className="font-display font-black uppercase text-4xl md:text-5xl tracking-tight">{t.checkout.success}</h1>
-          <p className="mt-6 text-ivory/70 leading-relaxed">{t.checkout.successSub}</p>
+          <p className="mt-6 text-concrete leading-relaxed">{t.checkout.successSub}</p>
           <div className="mt-10 border border-line p-6 text-start space-y-3 text-sm">
             <div className="flex justify-between"><span className="text-concrete uppercase tracking-widest">{t.checkout.orderNumber}</span><span className="font-display font-bold">{order.order_number}</span></div>
             <div className="flex justify-between"><span className="text-concrete uppercase tracking-widest">{t.cart.total}</span><span className="font-display font-bold">{fmt(order.total)}</span></div>
@@ -102,7 +102,7 @@ export default function Checkout() {
       <form onSubmit={submit} className="grid grid-cols-1 lg:grid-cols-5 gap-12">
         <div className="lg:col-span-3 space-y-12">
           <section>
-            <h2 className="text-xs uppercase tracking-[0.3em] text-concrete mb-6">01 — {t.checkout.contact}</h2>
+            <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-ivory mb-6">01 — {t.checkout.contact}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <input required minLength={2} className="input-line" placeholder={t.checkout.fullName} value={form.full_name} onChange={(e) => setForm({ ...form, full_name: e.target.value })} />
               <input required type="email" className="input-line" placeholder={t.checkout.email} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
@@ -111,7 +111,7 @@ export default function Checkout() {
           </section>
 
           <section>
-            <h2 className="text-xs uppercase tracking-[0.3em] text-concrete mb-6">02 — {t.checkout.shippingAddress}</h2>
+            <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-ivory mb-6">02 — {t.checkout.shippingAddress}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="text-xs text-concrete">{t.checkout.country}</label>
@@ -131,24 +131,24 @@ export default function Checkout() {
             </div>
             {user && (
               <label className="flex items-center gap-2 mt-6 text-sm text-concrete cursor-pointer">
-                <input type="checkbox" checked={saveAddress} onChange={(e) => setSaveAddress(e.target.checked)} className="accent-[#f2eee6]" />
+                <input type="checkbox" checked={saveAddress} onChange={(e) => setSaveAddress(e.target.checked)} className="accent-[#0864E8]" />
                 {t.checkout.saveAddress}
               </label>
             )}
           </section>
 
           <section>
-            <h2 className="text-xs uppercase tracking-[0.3em] text-concrete mb-6">03 — {t.checkout.payment}</h2>
+            <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-ivory mb-6">03 — {t.checkout.payment}</h2>
             <div className="space-y-3">
               <label className={`flex items-center gap-4 border p-5 cursor-pointer transition-colors ${payment === 'cod' ? 'border-ivory bg-ivory/5' : 'border-line hover:border-concrete'}`}>
-                <input type="radio" name="pay" checked={payment === 'cod'} onChange={() => setPayment('cod')} className="accent-[#f2eee6]" />
+                <input type="radio" name="pay" checked={payment === 'cod'} onChange={() => setPayment('cod')} className="accent-[#0864E8]" />
                 <div>
                   <span className="font-display font-semibold uppercase tracking-wide text-sm">{t.checkout.cod}</span>
                   <p className="text-concrete text-xs mt-1">{t.checkout.deliveryNote}</p>
                 </div>
               </label>
               <label className={`flex items-center gap-4 border p-5 cursor-pointer transition-colors opacity-50 ${payment === 'card' ? 'border-ivory bg-ivory/5' : 'border-line'}`}>
-                <input type="radio" name="pay" checked={payment === 'card'} onChange={() => setPayment('card')} className="accent-[#f2eee6]" />
+                <input type="radio" name="pay" checked={payment === 'card'} onChange={() => setPayment('card')} className="accent-[#0864E8]" />
                 <div>
                   <span className="font-display font-semibold uppercase tracking-wide text-sm">{t.checkout.card}</span>
                   <p className="text-concrete text-xs mt-1">{t.checkout.cardSoon}</p>
@@ -161,7 +161,7 @@ export default function Checkout() {
         {/* Summary */}
         <aside className="lg:col-span-2">
           <div className="border border-line p-6 md:p-8 sticky top-28">
-            <h2 className="text-xs uppercase tracking-[0.3em] text-concrete mb-6">{t.checkout.orderSummary}</h2>
+            <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-ivory mb-6">{t.checkout.orderSummary}</h2>
             <div className="space-y-4 max-h-72 overflow-y-auto pe-2">
               {items.map((i) => (
                 <div key={i.variant_id} className="flex gap-3 items-center">

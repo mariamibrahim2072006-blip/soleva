@@ -24,7 +24,7 @@ export default function Forgot() {
         <h1 className="font-display font-black uppercase text-4xl tracking-tight mb-4">{t.actions.resetPassword}</h1>
         {sent ? (
           <div className="space-y-4">
-            <p className="text-ivory/70 text-sm leading-relaxed">{t.auth.demoNote}</p>
+            <p className="text-concrete text-sm leading-relaxed">{t.auth.demoNote}</p>
             {demoUrl && <Link to={demoUrl} className="inline-block bg-ivory text-ink font-display font-bold uppercase tracking-[0.2em] text-sm px-8 py-3.5">{t.actions.resetPassword}</Link>}
           </div>
         ) : (
