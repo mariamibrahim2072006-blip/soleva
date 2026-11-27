@@ -6,7 +6,7 @@ export default function Preloader() {
   const wrap = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (sessionStorage.getItem('soleva-loaded')) { setDone(true); return; }
+    if (sessionStorage.getItem('soleva-loaded') || new URLSearchParams(window.location.search).has('snap')) { setDone(true); return; }
     document.body.style.overflow = 'hidden';
     const start = performance.now();
     const DURATION = 1600;
