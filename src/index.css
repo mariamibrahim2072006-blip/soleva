@@ -118,7 +118,7 @@ body {
 .admin-table th { font-weight: 500; text-align: start; }
 
 /* Input focus */
-.input-line {
+.input-line { font-size: 1rem; font-weight: 600;
   background: transparent; border: 0; border-bottom: 1px solid var(--color-line);
   padding: 12px 0; width: 100%; color: var(--color-ivory); outline: none;
   transition: border-color .3s;
