@@ -11,10 +11,12 @@ export default function Nav() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [q, setQ] = useState('');
   const [scrolled, setScrolled] = useState(false);
+  const [hideNav, setHideNav] = useState(false);
   const nav = useNavigate();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    let last = window.scrollY;
+    const onScroll = () => { const y = window.scrollY; setScrolled(y > 40); if (y > last + 4 && y > 80) setHideNav(true); else if (y < last - 4 || y <= 80) setHideNav(false); last = y; };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -39,7 +41,7 @@ export default function Nav() {
   };
 
   return (<>
-    <header className={`fixed top-0 inset-x-0 z-[100] transition-all duration-500 ${scrolled ? 'bg-ink/85 backdrop-blur-md border-b border-line' : 'bg-transparent'}`}>
+    <header className={`fixed top-0 inset-x-0 z-[100] transition-all duration-300 ${hideNav ? '-translate-y-full' : ''} ${scrolled ? 'bg-ink/85 backdrop-blur-md border-b border-line' : 'bg-transparent'}`}>
       <div className="max-w-[1600px] mx-auto px-5 md:px-10 h-[72px] flex items-center justify-between gap-6">
         <button className="lg:hidden p-2 -ms-2" onClick={() => setOpen(true)} aria-label="Menu">
           <div className="w-6 h-px bg-ivory mb-2" /><div className="w-6 h-px bg-ivory" />
