@@ -32,7 +32,7 @@ export default function ProductCard({ product, index = 0 }: { product: Product; 
             className="img-b absolute inset-0 w-full h-full object-cover" />
         )}
         <div className="absolute top-3 start-3 flex flex-col gap-1.5">
-          {product.is_new && <span className="bg-ink text-ivory text-[10px] uppercase tracking-[0.18em] px-2.5 py-1">{t.home.newArrivals}</span>}
+          {product.is_new && <span className="bg-[#0864e8] text-white text-[10px] font-bold uppercase tracking-[0.18em] px-2.5 py-1">{t.home.newArrivals}</span>}
           {product.on_sale && <span className="bg-ivory text-ink text-[10px] uppercase tracking-[0.18em] px-2.5 py-1 font-bold">-{discount}%</span>}
           {product.total_stock === 0 && <span className="bg-concrete text-ink text-[10px] uppercase tracking-[0.18em] px-2.5 py-1">{t.product.soldOut}</span>}
         </div>
