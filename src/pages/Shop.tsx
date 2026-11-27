@@ -65,15 +65,23 @@ export default function Shop() {
 
   return (
     <>
-      <section className="band-cobalt">
-      <header className="max-w-[1600px] mx-auto px-5 md:px-10 pt-28 md:pt-36 pb-8 md:pb-10">
-        <h1 className="font-display font-black uppercase text-5xl md:text-7xl tracking-tight">{title}</h1>
-        <p className="text-base font-semibold mt-3">{data ? `${data.total} ${t.shop.results}` : '…'}</p>
+      <section className="band-yellow">
+      <header className="max-w-[1600px] mx-auto px-5 md:px-10 pt-28 md:pt-36 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5">
+        <div>
+          <h1 className="font-display font-black uppercase text-5xl md:text-7xl tracking-tight">{title}</h1>
+          <p className="text-base font-semibold mt-3">{data ? `${data.total} ${t.shop.results}` : '…'}</p>
+        </div>
+        <div className="flex items-center gap-3 sm:pb-1">
+          <label htmlFor="sort-by" className="text-sm font-bold uppercase tracking-[0.15em] text-ivory">{t.shop.sort}</label>
+          <select id="sort-by" value={state.sort} onChange={(e) => setParam('sort', e.target.value)} className="bg-white border-2 border-ivory text-ivory text-base font-semibold px-4 py-2.5 outline-none rounded-none">
+            {Object.entries(t.shop.sorts).map(([k, v]) => <option key={k} value={k} className="bg-white text-ivory">{v}</option>)}
+          </select>
+        </div>
       </header>
       </section>
 
       <section className="band-yellow">
-      <div className="max-w-[1600px] mx-auto px-5 md:px-10 pt-10 pb-20 flex gap-12">
+      <div className="max-w-[1600px] mx-auto px-5 md:px-10 pt-8 pb-20 flex gap-12">
         {/* Filters sidebar */}
         <aside className={`fixed inset-0 z-[300] bg-ink p-6 overflow-y-auto transition-transform duration-500 lg:static lg:z-auto lg:bg-transparent lg:p-0 lg:w-64 lg:shrink-0 lg:block lg:translate-x-0 ${filtersOpen ? 'translate-x-0' : '-translate-x-full rtl:translate-x-full'} lg:rtl:translate-x-0`}>
           <div className="flex justify-between items-center lg:hidden mb-8">
@@ -143,14 +151,8 @@ export default function Shop() {
 
         {/* Grid */}
         <div className="flex-1 min-w-0">
-          <div className="flex items-center justify-between mb-8 gap-4">
-            <button onClick={() => setFiltersOpen(true)} className="lg:hidden text-xs uppercase tracking-[0.2em] border border-line px-4 py-2.5">{t.shop.filters}</button>
-            <div className="ms-auto flex items-center gap-3">
-              <label className="text-xs uppercase tracking-[0.2em] text-concrete hidden sm:block">{t.shop.sort}</label>
-              <select value={state.sort} onChange={(e) => setParam('sort', e.target.value)} className="bg-transparent border border-line text-sm px-3 py-2.5 outline-none">
-                {Object.entries(t.shop.sorts).map(([k, v]) => <option key={k} value={k} className="bg-ink-2">{v}</option>)}
-              </select>
-            </div>
+          <div className="lg:hidden flex items-center justify-between mb-8 gap-4">
+            <button onClick={() => setFiltersOpen(true)} className="text-sm font-bold uppercase tracking-[0.15em] border-2 border-ivory text-ivory bg-white px-4 py-2.5">{t.shop.filters}</button>
           </div>
 
           {state.q && <p className="text-concrete text-sm mb-6">{t.actions.search}: “{state.q}” — <button className="underline" onClick={() => setParam('q', '')}>×</button></p>}
@@ -184,8 +186,8 @@ export default function Shop() {
 
 function FilterGroup({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="border-b border-line py-6">
-      <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-ivory mb-4">{title}</h3>
+    <div className="border-b-2 border-ivory py-6">
+      <h3 className="font-display font-black uppercase text-xl md:text-2xl tracking-tight text-ivory mb-4">{title}</h3>
       {children}
     </div>
   );

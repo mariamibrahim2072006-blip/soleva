@@ -37,7 +37,7 @@ export default function Account() {
   return (
     <div className="bg-white" style={F}>
       <div className="max-w-[1300px] mx-auto px-5 md:px-10 pt-28 md:pt-32 pb-20 min-h-[80vh]">
-        <div className="band-cobalt -mt-28 md:-mt-32 pt-28 md:pt-32 pb-6 mb-8 flex flex-wrap items-center justify-between gap-4">
+        <div className="band-yellow -mt-28 md:-mt-32 pt-28 md:pt-32 pb-6 mb-8 flex flex-wrap items-center justify-between gap-4">
           <div>
             <h1 className="text-3xl md:text-4xl font-extrabold text-ivory">{ar ? `أهلاً، ${first}` : `Welcome back, ${first}`}</h1>
             <p className="text-ivory mt-1 text-base">{user.email}</p>

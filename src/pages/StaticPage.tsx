@@ -67,7 +67,7 @@ export default function StaticPage({ page }: { page: string }) {
   if (!c) return null;
   return (
     <div className="band-yellow max-w-3xl mx-auto px-5 pt-32 pb-24">
-      <div className="band-cobalt -mt-32 pt-32 pb-8 mb-8"><h1 className="font-display font-black uppercase text-4xl md:text-5xl tracking-tight mb-12">{c.title}</h1></div>
+      <h1 className="font-display font-black uppercase text-4xl md:text-5xl tracking-tight mb-12">{c.title}</h1>
       <div className="space-y-10">
         {c.sections.map(([h, b]) => (
           <section key={h}>
