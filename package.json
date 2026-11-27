@@ -7,7 +7,7 @@
     "dev": "concurrently -n api,web \"npm:dev:api\" \"npm:dev:web\"",
     "dev:api": "tsx watch server/index.ts",
     "dev:web": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "build:server": "tsc -p server/tsconfig.json",
     "seed": "tsx server/seed.ts"
   },
@@ -41,6 +41,7 @@
     "@vitejs/plugin-react": "^6.3.0",
     "concurrently": "^10.0.7",
     "netlify-cli": "^27.20.1",
+    "serverless-http": "^4.0.0",
     "tailwindcss": "^4.3.5",
     "tsx": "^4.23.15",
     "typescript": "^5.9.3",

@@ -63,7 +63,7 @@ export default function Home() {
       {/* ===== HERO ===== */}
       <section ref={heroRef} className="relative h-[100svh] overflow-hidden bg-ink">
         <div className="absolute inset-0">
-          <img ref={heroImg} src="/images/hero-main.png" alt="SOLEVA campaign" className="w-full h-full object-cover scale-105 will-change-transform" />
+          <img ref={heroImg} src="/images/hero-main.webp" alt="SOLEVA campaign" className="w-full h-full object-cover scale-105 will-change-transform" />
           <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-ink/40" />
         </div>
         <div className="hero-content relative z-10 h-full max-w-[1600px] mx-auto px-5 md:px-10 flex flex-col justify-end pb-24 md:pb-28">
@@ -160,7 +160,7 @@ export default function Home() {
             <Reveal><p className="text-ivory/70 leading-loose max-w-lg">{t.home.storyBody}</p></Reveal>
             <Reveal delay={0.15}><Link to="/about" className="inline-block mt-10 text-xs uppercase tracking-[0.25em] border-b border-ivory/40 pb-1 hover:border-ivory transition-colors">{t.footer.about}</Link></Reveal>
           </div>
-          <MaskImage src="/images/craft-1.png" alt="SOLEVA craftsmanship" className="aspect-[4/5]" />
+          <MaskImage src="/images/craft-1.webp" alt="SOLEVA craftsmanship" className="aspect-[4/5]" />
         </div>
       </section>
 
@@ -179,7 +179,7 @@ export default function Home() {
 
       {/* ===== CRAFTSMANSHIP ===== */}
       <section className="max-w-[1600px] mx-auto px-5 md:px-10 pb-24 md:pb-32 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <MaskImage src="/images/craft-2.png" alt="SOLEVA sole construction" className="aspect-[4/5] order-2 lg:order-1" />
+        <MaskImage src="/images/craft-2.webp" alt="SOLEVA sole construction" className="aspect-[4/5] order-2 lg:order-1" />
         <div className="order-1 lg:order-2">
           <p className="text-xs uppercase tracking-[0.35em] text-concrete mb-6">{t.home.craft}</p>
           <h2 className="font-display font-black uppercase text-4xl md:text-5xl tracking-tight mb-8">
@@ -199,8 +199,8 @@ export default function Home() {
         <div className="max-w-[1600px] mx-auto px-5 md:px-10 py-24">
           <p className="text-xs uppercase tracking-[0.35em] text-concrete mb-10">{t.home.gallery}</p>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
-            <MaskImage src="/images/campaign-1.png" alt="SOLEVA campaign one" className="md:col-span-7 aspect-[16/10]" />
-            <MaskImage src="/images/campaign-2.png" alt="SOLEVA campaign two" className="md:col-span-5 aspect-[16/10] md:aspect-auto" />
+            <MaskImage src="/images/campaign-1.webp" alt="SOLEVA campaign one" className="md:col-span-7 aspect-[16/10]" />
+            <MaskImage src="/images/campaign-2.webp" alt="SOLEVA campaign two" className="md:col-span-5 aspect-[16/10] md:aspect-auto" />
           </div>
         </div>
       </section>

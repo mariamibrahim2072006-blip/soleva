@@ -20,7 +20,7 @@ async function cartFor(userId: string) {
     JOIN product_colors c ON c.id = v.color_id
     JOIN products p ON p.id = v.product_id
     WHERE ci.user_id = ${userId} ORDER BY ci.created_at`;
-  const items = rows.map((r) => ({ ...r, unit_price: r.sale_price ?? r.base_price }));
+  const items = rows.map((r: any) => ({ ...r, unit_price: r.sale_price ?? r.base_price }));
   const subtotal = items.reduce((s, i) => s + i.unit_price * i.qty, 0);
   return { items, subtotal };
 }
