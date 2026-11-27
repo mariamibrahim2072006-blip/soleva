@@ -16,7 +16,7 @@
   --font-sans: "Archivo", "IBM Plex Sans Arabic", sans-serif;
 }
 
-html { background: var(--color-ink); }
+html { background: #fff; }
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 
@@ -144,4 +144,6 @@ select.input-line option { background: var(--color-ink-2); color: var(--color-iv
 .band-white { background: #fff; box-shadow: 0 0 0 100vmax #fff; clip-path: inset(0 -100vmax); }
 @media (hover: hover) and (pointer: fine) { .product-card:hover .img-a { transform: scale(1.08); } }
 .product-card .img-a { transition: transform .6s cubic-bezier(.2,.7,.2,1); }
-.footer-dark { background: var(--color-ink); color: var(--color-ivory); border-top: 6px solid var(--color-ivory); }
+.footer-dark { background: var(--color-ink); color: var(--color-ivory); }
+
+.band-yellow { background: var(--color-ink); box-shadow: 0 0 0 100vmax var(--color-ink); clip-path: inset(0 -100vmax); }

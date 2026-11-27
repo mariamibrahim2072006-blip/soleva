@@ -49,7 +49,7 @@ export default function App() {
   const isAdmin = location.pathname.startsWith('/admin');
 
   return (
-    <div className="min-h-screen bg-ink text-ivory">
+    <div className="min-h-screen bg-white text-ivory">
       <Preloader />
       <Cursor />
       {!isAdmin && <Nav />}
