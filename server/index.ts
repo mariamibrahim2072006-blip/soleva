@@ -28,7 +28,7 @@ export function createApp() {
 }
 
 // Local dev entry (Netlify uses netlify/functions/api.ts instead).
-if (process.env.SOLEVA_LOCAL === '1') {
+if (process.env.SOLEVA_LOCAL === '1' && process.env.SOLEVA_PROD !== '1') {
   const port = +(process.env.PORT || 8787);
   createApp().listen(port, () => console.log(`SOLEVA API on :${port}`));
 }
