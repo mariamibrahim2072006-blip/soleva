@@ -27,8 +27,8 @@ export default function Reset() {
   };
 
   return (
-    <div className="bg-white flex items-start justify-center px-5 pt-32 pb-20">
-      <div className="w-full max-w-md ">
+    <div className="band-yellow min-h-screen flex items-start justify-center px-5 pt-32 pb-20">
+      <div className="w-full max-w-md bg-white border-2 border-ivory p-6 md:p-8">
         <div className="text-center font-display font-black text-3xl tracking-[0.18em] text-ivory mb-8 select-none">SOLEVA</div>
           
         <h1 className="font-display font-black uppercase text-4xl tracking-tight mb-4">{t.actions.resetPassword}</h1>

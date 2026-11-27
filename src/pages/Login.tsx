@@ -23,13 +23,13 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="band-yellow min-h-screen">
       <div className="flex items-start justify-center px-5 pt-32 pb-20">
-        <form onSubmit={submit} className="w-full max-w-md bg-white">
+        <form onSubmit={submit} className="w-full max-w-md bg-white border-2 border-ivory p-6 md:p-8">
           <div className="text-center font-display font-black text-3xl tracking-[0.18em] text-ivory mb-8 select-none">SOLEVA</div>
           
           <h1 className="font-display font-black uppercase text-4xl tracking-tight mb-2">{t.auth.welcome}</h1>
-          <p className="text-concrete text-sm mb-10">{t.auth.noAccount} <Link to="/register" className="text-ivory underline">{t.actions.register}</Link></p>
+          <p className="text-concrete text-base font-semibold mb-8">{t.auth.noAccount} <Link to="/register" className="text-ivory underline">{t.actions.register}</Link></p>
           <div className="space-y-6">
             <input required type="email" className="input-line" placeholder={t.auth.email} value={email} onChange={(e) => setEmail(e.target.value)} dir="ltr" />
             <input required type="password" className="input-line" placeholder={t.auth.password} value={password} onChange={(e) => setPassword(e.target.value)} dir="ltr" />
