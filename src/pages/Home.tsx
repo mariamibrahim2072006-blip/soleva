@@ -212,7 +212,7 @@ export default function Home() {
       </section>
 
       {/* ===== BEST SELLERS ===== */}
-      <section className="band-yellow max-w-[1600px] mx-auto px-5 md:px-10 py-8 md:py-12">
+      <section className="band-cobalt max-w-[1600px] mx-auto px-5 md:px-10 py-8 md:py-12">
         <Reveal>
           <div className="flex items-end justify-between mb-8">
             <h2 className="font-display font-black uppercase text-3xl md:text-5xl tracking-tight">{t.home.bestSellers}</h2>
@@ -225,7 +225,7 @@ export default function Home() {
       </section>
 
       {/* ===== CRAFTSMANSHIP ===== */}
-      <section className="band-white max-w-[1600px] mx-auto px-5 md:px-10 py-8 md:py-12 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+      <section className="band-yellow max-w-[1600px] mx-auto px-5 md:px-10 py-8 md:py-12 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
         <MaskImage src="/images/craft-2.webp" alt="SOLEVA sole construction" className="aspect-[4/3] lg:aspect-[4/5] order-2 lg:order-1 w-full lg:max-w-[340px]" imgClassName="!object-contain" />
         <div className="order-1 lg:order-2">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-ivory mb-4">{t.home.craft}</p>
@@ -242,7 +242,7 @@ export default function Home() {
       </section>
 
       {/* ===== CAMPAIGN GALLERY ===== */}
-      <section className="band-yellow border-y border-line">
+      <section className="band-cobalt border-y border-line">
         <div className="max-w-[1600px] mx-auto px-5 md:px-10 py-8 md:py-12">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-ivory mb-8">{t.home.gallery}</p>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">

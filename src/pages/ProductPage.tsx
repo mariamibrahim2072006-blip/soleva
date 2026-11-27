@@ -71,12 +71,17 @@ export default function ProductPage() {
   const doAdd = async (goCheckout: boolean) => {
     if (!selectedVariant) { showToast(t.product.selectSize); return; }
     if (selectedVariant.stock < qty) { showToast(t.product.soldOut); return; }
+    if (goCheckout) {
+      // Buy Now: single item straight to checkout, the cart is untouched.
+      nav('/checkout', { state: { buyNow: { variant_id: selectedVariant.id, qty, name_en: p.name_en, name_ar: p.name_ar, image: p.images[0], size, price: p.price } } });
+      return;
+    }
     await addToCart(selectedVariant.id, qty, {
       slug: p.slug, name_en: p.name_en, name_ar: p.name_ar, image_url: p.images[0],
       size, color_en: color?.name_en || '', color_ar: color?.name_ar || '', unit_price: p.price, stock: selectedVariant.stock,
     });
     showToast(t.product.addedToCart);
-    if (goCheckout) nav('/checkout'); else setCartOpen(true);
+    setCartOpen(true);
   };
 
   const submitReview = async (e: React.FormEvent) => {

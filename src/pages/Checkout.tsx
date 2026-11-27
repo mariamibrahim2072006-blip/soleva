@@ -1,13 +1,14 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useLang } from '../lang';
 import { api, setGuestCart } from '../api';
 import { useStore } from '../store';
 
 export default function Checkout() {
   const { t, lang, fmt } = useLang();
-  const { user, cartItems, guestItems, cartSubtotal, reloadCart, authReady } = useStore();
+  const { user, cartItems, guestItems, reloadCart, authReady } = useStore();
   const nav = useNavigate();
+  const buyNow = (useLocation().state as any)?.buyNow as { variant_id: number; qty: number; name_en: string; name_ar: string; image: string; size: string; price: number } | undefined;
   const [governorates, setGovernorates] = useState<{ name: string; fee: number }[]>([]);
   const [form, setForm] = useState({ full_name: '', email: '', phone: '', governorate: 'Cairo', city: '', area: '', street: '', postal_code: '', notes: '' });
   const [payment, setPayment] = useState<'cod' | 'card'>('cod');
@@ -24,20 +25,21 @@ export default function Checkout() {
     if (user) setForm((f) => ({ ...f, full_name: f.full_name || user.full_name, email: f.email || user.email, phone: f.phone || user.phone || '' }));
   }, [user]);
 
-  const items = useMemo(() => user
+  const items = useMemo(() => buyNow ? [{ variant_id: buyNow.variant_id, qty: buyNow.qty, name: lang === 'ar' ? buyNow.name_ar : buyNow.name_en, image: buyNow.image, size: buyNow.size, price: buyNow.price }] : user
     ? cartItems.map((i) => ({ variant_id: i.variant_id, qty: i.qty, name: lang === 'ar' ? i.name_ar : i.name_en, image: i.image_url, size: i.size, price: i.unit_price }))
     : guestItems.map((g) => ({ variant_id: g.variant_id, qty: g.qty, name: lang === 'ar' ? g.meta?.name_ar : g.meta?.name_en, image: g.meta?.image_url || '', size: g.meta?.size || '', price: g.meta?.unit_price || 0 })),
-  [user, cartItems, guestItems, lang]);
+  [user, cartItems, guestItems, lang, buyNow]);
+  const subtotal = items.reduce((n, i) => n + i.qty * i.price, 0);
 
   const gov = governorates.find((g) => g.name === form.governorate);
   const discount = couponState?.discount ?? 0;
-  const shipping = cartSubtotal - discount >= 10000 ? 0 : (gov?.fee ?? 100);
-  const total = cartSubtotal - discount + shipping;
+  const shipping = subtotal - discount >= 10000 ? 0 : (gov?.fee ?? 100);
+  const total = subtotal - discount + shipping;
 
   const applyCoupon = async () => {
     setCouponError('');
     try {
-      const d = await api<any>('/coupons/validate', { method: 'POST', body: JSON.stringify({ code: coupon, subtotal: cartSubtotal }) });
+      const d = await api<any>('/coupons/validate', { method: 'POST', body: JSON.stringify({ code: coupon, subtotal: subtotal }) });
       setCouponState({ code: d.code, discount: d.discount });
     } catch (e: any) {
       setCouponState(null);
@@ -56,7 +58,7 @@ export default function Checkout() {
         body: JSON.stringify({ ...form, payment_method: 'cod', coupon_code: couponState?.code, save_address: saveAddress, items: items.map((i) => ({ variant_id: i.variant_id, qty: i.qty })) }),
       });
       setOrder(d.order);
-      if (!user) setGuestCart([]);
+      if (!user && !buyNow) setGuestCart([]);
       await reloadCart();
       window.scrollTo(0, 0);
     } catch (err: any) {
@@ -182,7 +184,7 @@ export default function Checkout() {
             {couponError && <p className="text-xs text-red-400 mt-2">{couponError}</p>}
             {couponState && <p className="text-xs text-silver mt-2">✓ {couponState.code}</p>}
             <div className="border-t border-line mt-6 pt-6 space-y-3 text-sm">
-              <div className="flex justify-between"><span className="text-concrete">{t.cart.subtotal}</span><span>{fmt(cartSubtotal)}</span></div>
+              <div className="flex justify-between"><span className="text-concrete">{t.cart.subtotal}</span><span>{fmt(subtotal)}</span></div>
               {discount > 0 && <div className="flex justify-between text-silver"><span>{t.cart.discount}</span><span>−{fmt(discount)}</span></div>}
               <div className="flex justify-between"><span className="text-concrete">{t.cart.shipping}</span><span>{shipping === 0 ? t.cart.freeShipping : fmt(shipping)}</span></div>
               <div className="flex justify-between font-display font-black text-xl pt-3 border-t border-line"><span>{t.cart.total}</span><span>{fmt(total)}</span></div>
