@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLang } from '../lang';
-import { api } from '../api';
+import { api, setGuestCart } from '../api';
 import { useStore } from '../store';
 
 export default function Checkout() {
@@ -56,6 +56,7 @@ export default function Checkout() {
         body: JSON.stringify({ ...form, payment_method: 'cod', coupon_code: couponState?.code, save_address: saveAddress, items: items.map((i) => ({ variant_id: i.variant_id, qty: i.qty })) }),
       });
       setOrder(d.order);
+      if (!user) setGuestCart([]);
       await reloadCart();
       window.scrollTo(0, 0);
     } catch (err: any) {

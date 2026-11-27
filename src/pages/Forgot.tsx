@@ -19,8 +19,10 @@ export default function Forgot() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-5 pt-24 pb-16">
-      <div className="w-full max-w-md">
+    <div className="bg-white flex items-start justify-center px-5 pt-32 pb-20">
+      <div className="w-full max-w-md ">
+        <div className="text-center font-display font-black text-3xl tracking-[0.18em] text-ivory mb-8 select-none">SOLEVA</div>
+          
         <h1 className="font-display font-black uppercase text-4xl tracking-tight mb-4">{t.actions.resetPassword}</h1>
         {sent ? (
           <div className="space-y-4">

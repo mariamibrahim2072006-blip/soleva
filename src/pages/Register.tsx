@@ -25,14 +25,11 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen grid lg:grid-cols-2">
-      <div className="hidden lg:block relative overflow-hidden">
-        <img src="/images/campaign-1.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-ink/40" />
-        <div className="absolute bottom-10 start-10 font-display font-black uppercase text-5xl tracking-tight text-outline">SOLEVA</div>
-      </div>
-      <div className="flex items-center justify-center px-5 pt-24 pb-16">
-        <form onSubmit={submit} className="w-full max-w-md">
+    <div className="min-h-screen bg-white">
+      <div className="flex items-start justify-center px-5 pt-32 pb-20">
+        <form onSubmit={submit} className="w-full max-w-md bg-white">
+          <div className="text-center font-display font-black text-3xl tracking-[0.18em] text-ivory mb-8 select-none">SOLEVA</div>
+          
           <h1 className="font-display font-black uppercase text-4xl tracking-tight mb-2">{t.auth.create}</h1>
           <p className="text-concrete text-sm mb-10">{t.auth.haveAccount} <Link to="/login" className="text-ivory underline">{t.actions.signIn}</Link></p>
           <div className="space-y-6">

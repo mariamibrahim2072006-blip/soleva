@@ -135,7 +135,7 @@ export default function Home() {
       </div>
 
       {/* ===== NEW ARRIVALS ===== */}
-      <section className="max-w-[1600px] mx-auto px-5 md:px-10 py-8 md:py-12">
+      <section className="band-white max-w-[1600px] mx-auto px-5 md:px-10 py-8 md:py-12">
         <Reveal>
           <div className="flex items-end justify-between mb-8">
             <h2 className="font-display font-black uppercase text-3xl md:text-5xl tracking-tight">{t.home.newArrivals}</h2>
@@ -160,7 +160,7 @@ export default function Home() {
             {slides.slice(0, 10).map((p, i) => (
               <Link key={p.id} to={`/product/${p.slug}`} className="group relative w-[72vw] sm:w-[44vw] md:w-[22vw] shrink-0">
                 <div className="aspect-[4/5] overflow-hidden bg-white">
-                  <img src={p.images[0]} alt={lang === 'ar' ? p.name_ar : p.name_en} className="w-full h-full object-contain" loading="lazy" draggable={false} />
+                  <img src={p.images[0]} alt={lang === 'ar' ? p.name_ar : p.name_en} className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.08]" loading="lazy" draggable={false} />
                 </div>
                 <div className="flex justify-between items-baseline mt-5">
                   <span className="font-display font-black uppercase text-lg md:text-2xl">0{i + 1} — {lang === 'ar' ? p.name_ar : p.name_en}</span>
@@ -196,7 +196,7 @@ export default function Home() {
 
       {/* ===== STORY ===== */}
       <section className="bg-ink-2 border-y border-line">
-        <div className="max-w-[1600px] mx-auto px-5 md:px-10 py-8 md:py-12 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 py-6 md:py-8 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-ivory mb-4">{t.home.storyKicker}</p>
             <h2 className="font-display font-black uppercase tracking-tight text-3xl md:text-5xl leading-none mb-5"><SplitWords text={t.home.storyTitle} /></h2>
@@ -208,7 +208,7 @@ export default function Home() {
             </div></Reveal>
             <Reveal delay={0.15}><Link to="/shop" className="inline-block mt-8 bg-ivory text-ink-2 font-display font-bold uppercase tracking-[0.14em] text-sm px-8 py-4 hover:bg-ivory-2 transition-colors">{t.actions.shopNow}</Link></Reveal>
           </div>
-          <MaskImage src="/images/craft-1.webp" alt="SOLEVA craftsmanship" className="aspect-[4/3]" />
+          <MaskImage src="/images/craft-1.webp" alt="SOLEVA craftsmanship" className="aspect-[4/3] lg:aspect-[4/5] w-full lg:max-w-[340px] lg:justify-self-end" imgClassName="!object-contain" />
         </div>
       </section>
 
@@ -226,8 +226,8 @@ export default function Home() {
       </section>
 
       {/* ===== CRAFTSMANSHIP ===== */}
-      <section className="max-w-[1600px] mx-auto px-5 md:px-10 pb-8 md:pb-12 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
-        <MaskImage src="/images/craft-2.webp" alt="SOLEVA sole construction" className="aspect-[4/3] order-2 lg:order-1" />
+      <section className="band-white max-w-[1600px] mx-auto px-5 md:px-10 py-8 md:py-12 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+        <MaskImage src="/images/craft-2.webp" alt="SOLEVA sole construction" className="aspect-[4/3] lg:aspect-[4/5] order-2 lg:order-1 w-full lg:max-w-[340px]" imgClassName="!object-contain" />
         <div className="order-1 lg:order-2">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-ivory mb-4">{t.home.craft}</p>
           <h2 className="font-display font-black uppercase text-3xl md:text-5xl tracking-tight mb-5">
@@ -243,7 +243,7 @@ export default function Home() {
       </section>
 
       {/* ===== CAMPAIGN GALLERY ===== */}
-      <section className="border-y border-line bg-ink-2">
+      <section className="border-y border-line">
         <div className="max-w-[1600px] mx-auto px-5 md:px-10 py-8 md:py-12">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-ivory mb-8">{t.home.gallery}</p>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
@@ -255,7 +255,7 @@ export default function Home() {
 
       {/* ===== REVIEWS ===== */}
       {reviews.length > 0 && (
-        <section className="max-w-[1600px] mx-auto px-5 md:px-10 py-8 md:py-12">
+        <section className="band-white max-w-[1600px] mx-auto px-5 md:px-10 py-8 md:py-12">
           <Reveal><h2 className="font-display font-black uppercase text-3xl md:text-5xl tracking-tight mb-8 text-center">{t.home.reviews}</h2></Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {reviews.map((r, i) => (
@@ -273,7 +273,7 @@ export default function Home() {
       )}
 
       {/* ===== NEWSLETTER ===== */}
-      <section className="border-t border-line">
+      <section className="border-t-[6px] border-ivory">
         <div className="max-w-[1600px] mx-auto px-5 md:px-10 py-8 md:py-12 text-center">
           <Reveal>
             <h2 className="font-display font-black uppercase text-3xl md:text-5xl tracking-tight"><SplitWords text={t.home.newsletter} /></h2>
