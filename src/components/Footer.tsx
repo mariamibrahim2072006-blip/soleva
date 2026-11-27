@@ -19,7 +19,7 @@ export default function Footer() {
       { to: '/privacy', label: t.footer.privacy }, { to: '/terms', label: t.footer.terms } ] },
   ];
   return (
-    <footer className="border-t border-line mt-0 bg-ink">
+    <footer className="footer-dark">
       <div className="max-w-[1600px] mx-auto px-5 md:px-10 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-4">
           <div className="font-display font-black text-4xl tracking-[0.18em] mb-4">SOLEVA</div>

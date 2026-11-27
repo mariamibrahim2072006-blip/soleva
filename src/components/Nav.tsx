@@ -49,7 +49,7 @@ export default function Nav() {
   };
 
   return (<>
-    <header className={`fixed top-0 inset-x-0 z-[100] transition-all duration-300 ${hideNav ? '-translate-y-full' : ''} ${scrolled ? 'bg-ink border-b border-line' : 'bg-transparent'}`}>
+    <header className={`fixed top-0 inset-x-0 z-[100] transition-all duration-300 ${hideNav ? '-translate-y-full' : ''} ${scrolled ? 'bg-ink border-b border-line' : 'bg-ink'}`}>
       <div className="max-w-[1600px] mx-auto px-3 sm:px-5 md:px-10 h-[72px] flex items-center justify-between gap-2 md:gap-6">
         <button className="lg:hidden p-1.5 -ms-1.5" onClick={() => setOpen(true)} aria-label="Menu">
           <div className="w-6 h-px bg-ivory mb-2" /><div className="w-6 h-px bg-ivory" />
