@@ -25,7 +25,7 @@ export default function Footer() {
           <div className="font-display font-black text-4xl tracking-[0.18em] mb-4">SOLEVA</div>
           <p className="text-concrete text-sm leading-relaxed max-w-xs">{t.footer.tagline}</p>
           <div className="mt-8">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-ivory mb-3">{t.home.newsletter}</p>
+            <p className="text-base font-bold text-ivory mb-3 max-w-xs">{t.home.newsletterSub}</p>
             <NewsletterForm compact />
           </div>
         </div>

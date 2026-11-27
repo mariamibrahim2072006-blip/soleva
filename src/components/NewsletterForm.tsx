@@ -23,8 +23,8 @@ export default function NewsletterForm({ compact = false }: { compact?: boolean 
   return (
     <form onSubmit={submit} className={`flex ${compact ? '' : 'max-w-md mx-auto'}`}>
       <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder={t.auth.email}
-        className="flex-1 bg-transparent border-b border-ivory/30 focus:border-ivory outline-none py-3 text-sm placeholder:text-concrete transition-colors" />
-      <button type="submit" className="ms-4 text-xs uppercase tracking-[0.2em] border-b border-ivory pb-1 hover:text-silver hover:border-silver transition-colors">{t.actions.subscribe}</button>
+        className="flex-1 bg-transparent border-b-2 border-ivory outline-none py-3 text-base text-ivory placeholder:text-concrete transition-colors" />
+      <button type="submit" className="ms-4 text-sm font-bold uppercase tracking-[0.2em] border-b-2 border-ivory pb-1 text-ivory">{t.actions.subscribe}</button>
     </form>
   );
 }
