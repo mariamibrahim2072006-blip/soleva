@@ -12,6 +12,7 @@ const Home = lazy(() => import('./pages/Home'));
 const Shop = lazy(() => import('./pages/Shop'));
 const ProductPage = lazy(() => import('./pages/ProductPage'));
 const Checkout = lazy(() => import('./pages/Checkout'));
+const CheckoutSuccess = lazy(() => import('./pages/CheckoutSuccess'));
 const TrackOrder = lazy(() => import('./pages/TrackOrder'));
 const Login = lazy(() => import('./pages/Login'));
 const Register = lazy(() => import('./pages/Register'));
@@ -62,6 +63,7 @@ export default function App() {
             <Route path="/collections/:collection" element={<Shop />} />
             <Route path="/product/:slug" element={<ProductPage />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/checkout/success" element={<CheckoutSuccess />} />
             <Route path="/track" element={<TrackOrder />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
