@@ -50,13 +50,13 @@ export default function Checkout() {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    if (payment === 'card') { setError(t.checkout.cardSoon); return; }
     setPlacing(true);
     try {
-      const d = await api<any>('/orders', {
+      const d = await api<any>(payment === 'card' ? '/pay/session' : '/orders', {
         method: 'POST',
-        body: JSON.stringify({ ...form, payment_method: 'cod', coupon_code: couponState?.code, save_address: saveAddress, items: items.map((i) => ({ variant_id: i.variant_id, qty: i.qty })) }),
+        body: JSON.stringify({ ...form, payment_method: payment, return_origin: window.location.origin, coupon_code: couponState?.code, save_address: saveAddress, items: items.map((i) => ({ variant_id: i.variant_id, qty: i.qty })) }),
       });
+      if (d.checkout_url) { if (!user && !buyNow) setGuestCart([]); window.location.href = d.checkout_url; return; }
       setOrder(d.order);
       if (!user && !buyNow) setGuestCart([]);
       await reloadCart();
@@ -150,11 +150,11 @@ export default function Checkout() {
                   <p className="text-concrete text-sm font-semibold mt-1">{t.checkout.deliveryNote}</p>
                 </div>
               </label>
-              <label className={`flex items-center gap-4 border-2 border-ivory/40 bg-white p-5 cursor-pointer transition-colors opacity-60`}>
+              <label className={`flex items-center gap-4 border-2 border-ivory bg-white p-5 cursor-pointer transition-colors ${payment === 'card' ? 'bg-ink-3' : ''}`}>
                 <input type="radio" name="pay" checked={payment === 'card'} onChange={() => setPayment('card')} className="accent-[#0864E8]" />
                 <div>
                   <span className="font-display font-semibold uppercase tracking-wide text-sm">{t.checkout.card}</span>
-                  <p className="text-concrete text-sm font-semibold mt-1">{t.checkout.cardSoon}</p>
+                  <p className="text-concrete text-sm font-semibold mt-1">{lang === 'ar' ? 'ادفع بأمان بالبطاقة عبر Stripe (وضع تجريبي)' : 'Pay securely by card via Stripe (test mode)'}</p>
                 </div>
               </label>
             </div>
@@ -191,7 +191,7 @@ export default function Checkout() {
             </div>
             {error && <p className="text-sm text-red-400 mt-4">{error}</p>}
             <button type="submit" disabled={placing} className="w-full mt-8 bg-ivory text-white font-display font-black uppercase tracking-[0.12em] text-base py-5 hover:bg-ivory-2 transition-colors disabled:opacity-50">
-              {placing ? '…' : t.checkout.placeOrder}
+              {placing ? '…' : payment === 'card' ? (lang === 'ar' ? 'ادفع بالبطاقة' : 'Pay by card') : t.checkout.placeOrder}
             </button>
           </div>
         </aside>
